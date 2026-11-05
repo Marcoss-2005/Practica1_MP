@@ -1,0 +1,276 @@
+# depslib dependency file v1.0
+1541496597 source:c:\users\usuario\downloads\practica1a\main.cpp
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+	<cstring>
+
+1541496537 source:c:\users\usuario\downloads\practica1a\src\fecha.cpp
+	"Fecha.h"
+
+1540891983 c:\users\usuario\downloads\practica1a\include\fecha.h
+
+1541496870 c:\users\usuario\downloads\practica1a\include\cliente.h
+	<iostream>
+	"Fecha.h"
+
+1541496488 source:c:\users\usuario\downloads\practica1a\src\cliente.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Cliente.h"
+
+1542104910 source:c:\users\usuario\downloads\practica1b\main.cpp
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoMovil.h"
+	<cstring>
+
+1540891983 c:\users\usuario\downloads\practica1b\include\fecha.h
+
+1542102585 c:\users\usuario\downloads\practica1b\include\cliente.h
+	<iostream>
+	"Fecha.h"
+
+1541496537 source:c:\users\usuario\downloads\practica1b\src\fecha.cpp
+	"Fecha.h"
+
+1542101516 source:c:\users\usuario\downloads\practica1b\src\cliente.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Cliente.h"
+
+1542104571 source:c:\users\usuario\downloads\practica1b\src\contratomovil.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Contrato.h"
+	"ContratoMovil.h"
+
+1542104603 c:\users\usuario\downloads\practica1b\include\contrato.h
+	<iostream>
+	"Fecha.h"
+
+1542105009 c:\users\usuario\downloads\practica1b\include\contratomovil.h
+	"Fecha.h"
+	"Contrato.h"
+
+1542104696 source:c:\users\usuario\downloads\practica1b\src\contrato.cpp
+	"Contrato.h"
+
+1542104718 source:c:\users\usuario\downloads\practica1b\src\contratotp.cpp
+	"ContratoTP.h"
+
+1542104571 c:\users\usuario\downloads\practica1b\include\contratotp.h
+	"Fecha.h"
+	"Contrato.h"
+
+1542104910 source:c:\users\amarquez\downloads\practica1bmartes13\main.cpp
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoMovil.h"
+	<cstring>
+
+1542141244 c:\users\amarquez\downloads\practica1bmartes13\include\fecha.h
+	<iostream>
+
+1542142970 c:\users\amarquez\downloads\practica1bmartes13\include\cliente.h
+	<iostream>
+	"Fecha.h"
+
+1542141375 c:\users\amarquez\downloads\practica1bmartes13\include\contrato.h
+	<iostream>
+	"Fecha.h"
+
+1542142970 c:\users\amarquez\downloads\practica1bmartes13\include\contratomovil.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1542141806 source:c:\users\amarquez\downloads\practica1bmartes13\src\cliente.cpp
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+	"Cliente.h"
+
+1542142970 source:c:\users\amarquez\downloads\practica1bmartes13\src\contrato.cpp
+	"Contrato.h"
+
+1542143540 source:c:\users\amarquez\downloads\practica1bmartes13\src\contratotp.cpp
+	"ContratoTP.h"
+
+1542144389 c:\users\amarquez\downloads\practica1bmartes13\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1542141129 source:c:\users\amarquez\downloads\practica1bmartes13\src\fecha.cpp
+	"Fecha.h"
+
+1542104910 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\main.cpp
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoMovil.h"
+	<cstring>
+
+1605099516 c:\users\amarquez\downloads\practica1b_ayuda_2020\include\fecha.h
+	<iostream>
+
+1604494689 c:\users\amarquez\downloads\practica1b_ayuda_2020\include\cliente.h
+	<iostream>
+	"Fecha.h"
+
+1542148747 c:\users\amarquez\downloads\practica1b_ayuda_2020\include\contrato.h
+	<iostream>
+	"Fecha.h"
+
+1542148701 c:\users\amarquez\downloads\practica1b_ayuda_2020\include\contratomovil.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1542141806 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\src\cliente.cpp
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+	"Cliente.h"
+
+1542142970 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\src\contrato.cpp
+	"Contrato.h"
+
+1542144858 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\src\contratomovil.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	"Contrato.h"
+	"ContratoMovil.h"
+
+1542143540 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\src\contratotp.cpp
+	"ContratoTP.h"
+
+1542144389 c:\users\amarquez\downloads\practica1b_ayuda_2020\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1605099659 source:c:\users\amarquez\downloads\practica1b_ayuda_2020\src\fecha.cpp
+	"Fecha.h"
+
+1792549590 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\main.cpp
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoMovil.h"
+	<cstring>
+
+1605103116 c:\users\amarquez\downloads\practica1b_ayuda_2026\include\fecha.h
+	<iostream>
+
+1792548935 c:\users\amarquez\downloads\practica1b_ayuda_2026\include\cliente.h
+	<iostream>
+	<string>
+	"Fecha.h"
+
+1792551221 c:\users\amarquez\downloads\practica1b_ayuda_2026\include\contrato.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1792549985 c:\users\amarquez\downloads\practica1b_ayuda_2026\include\contratomovil.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1792550223 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\cliente.cpp
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+	"Cliente.h"
+
+1792551246 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\contrato.cpp
+	"Contrato.h"
+
+1792551367 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\contratomovil.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	"Contrato.h"
+	"ContratoMovil.h"
+
+1542147140 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\contratotp.cpp
+	"ContratoTP.h"
+
+1792550033 c:\users\amarquez\downloads\practica1b_ayuda_2026\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1605103259 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\fecha.cpp
+	"Fecha.h"
+
+1793808595 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\main.cpp
+	<cstdlib>
+	<iostream>
+	<iomanip>
+	"Fecha.h"
+	"Contrato.h"
+	"ContratoTP.h"
+	"ContratoMovil.h"
+
+1793039254 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\fecha.h
+	<iostream>
+
+1793039213 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\cliente.h
+	<string>
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1793284419 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contrato.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1793284024 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contratomovil.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1793039203 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\cliente.cpp
+	"Cliente.h"
+
+1793787648 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contrato.cpp
+	"Contrato.h"
+
+1793732084 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratomovil.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	"Contrato.h"
+	"ContratoMovil.h"
+
+1793808777 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratotp.cpp
+	"ContratoTP.h"
+
+1793886605 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1793039272 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\fecha.cpp
+	"Fecha.h"
+
