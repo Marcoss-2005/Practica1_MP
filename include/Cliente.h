@@ -11,6 +11,7 @@ using namespace std;
 class Cliente
 {
     public:
+        //Declaramos los metodos y el constructor
         Cliente(char dni[10], char* nombre, string apellido, Fecha fecha);
         void setNombre(char* nombre);
         void setDni(char dni[10]);

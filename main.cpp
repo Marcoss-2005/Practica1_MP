@@ -1,40 +1,53 @@
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 #include <iomanip> // std::setprecision
-#include "Fecha.h" // definición de la clase Fecha
-#include "Contrato.h" // definición de la clase Contrato
-#include "ContratoTP.h" // definición de la clase ContratoTP
-#include "ContratoMovil.h" // definición de la clase ContratoMovil
+#include "Fecha.h"
+#include "Cliente.h"
+#include "Contrato.h"
+#include "ContratoTP.h"
+#include "ContratoMovil.h"
+#include "Empresa.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    Fecha f1(29, 2, 2001), f2(f1), f3(29, 2, 2004);
+    bool ok;
+    Empresa Yoigo;
 
-    cout << "Fechas: ";
-    f1.ver(); cout << ", "; f2.ver(); cout << ", "; f3.ver(); cout << endl;
+    cout << setprecision(2) << fixed; // A partir de aquí los float se muestran con 2 decimales
+    cout << endl << "APLICACION DE GESTION TELEFONICA\n" << endl;
 
-    Contrato *p = new ContratoTP("75547111J", f1, 160); // O adaptado a tu constructor de contrato polimórfico
-    ContratoTP ct1("17333256F", f1, 250); // habla 250 minutos
-    ContratoTP ct2("12555100L", f3, 320); // habla 320 minutos
-    ContratoMovil cm1("17333256F", f1, 0.12, 100, "ESPAÑOL"); // habla 100 minutos
+    Yoigo.cargarDatos(); // Carga los clientes y contratos iniciales de prueba
+    Yoigo.ver();         // Muestra el estado inicial de la empresa
+    cout << "Yoigo tiene " << Yoigo.nContratosTP() << " Contratos de Tarifa Plana\n\n";
 
-    // --- CÓDIGO DE PRUEBA DEL PASO 1 AÑADIDO ---
-    Contrato *t[4];
-    t[0] = p;
-    t[1] = &ct1; // (Asegúrate de apuntar a tus objetos creados)
-    t[2] = &ct2;
-    t[3] = &cm1;
+    Yoigo.crearContrato(); // Prueba a crear un contrato (pedirá datos por pantalla)
+    Yoigo.crearContrato(); // Otro contrato más
 
-    cout << "\n-- Datos de los contratos: -- \n";
-    t[3]->setDniContrato("75547111J");
+    ok = Yoigo.cancelarContrato(28); // Este contrato no debería existir
+    if (ok)
+        cout << "Contrato 28 cancelado\n";
+    else
+        cout << "El Contrato 28 no existe\n";
 
-    for(int i = 0; i < 4; i++) {
-        t[i]->setFechaContrato(t[i]->getFechaContrato() + 2);
-        t[i]->ver();
-        cout << endl;
-    }
-    // ---------------------------------------------
+    ok = Yoigo.cancelarContrato(4); // Contrato existente
+    if (ok)
+        cout << "El Contrato 4 ha sido cancelado\n";
+    else
+        cout << "El Contrato 4 no existe\n";
+
+    ok = Yoigo.bajaCliente("75547001M"); // Baja de cliente y sus contratos asociados
+    if (ok)
+        cout << "El cliente 75547001M y sus Contratos han sido cancelados\n";
+    else
+        cout << "El cliente 75547001M no existe\n";
+
+    Yoigo.ver(); // Muestra el estado tras las bajas y creaciones
+
+    Yoigo.descuento(20); // Aplica un 20% de descuento a los Contratos Móviles
+    cout << "\nTras rebajar un 20% la tarifa de los ContratosMovil...";
+    Yoigo.ver();
+    cout << "Yoigo tiene " << Yoigo.nContratosTP() << " Contratos de Tarifa Plana\n";
 
     system("PAUSE");
     return 0;

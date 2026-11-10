@@ -26,7 +26,9 @@ public:
   Fecha getFechaContrato() const { return this->fechaContrato; }
   void setFechaContrato(Fecha f) { this->fechaContrato=f; }
   void setDniContrato(const char dni[]) { strcpy(this->dniContrato,dni); }
-  void ver() const;
+  //le meto el virtual para no liarla
+  virtual void ver() const;
+  virtual float factura() const=0;
 };
 
 ostream& operator<<(ostream &s, const Contrato &c);
