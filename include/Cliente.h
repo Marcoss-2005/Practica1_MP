@@ -23,6 +23,7 @@ class Cliente
         Fecha getFecha() const;
         virtual ~Cliente();
         bool operator==(const Cliente& otro) const;
+        Cliente& operator=(const Cliente& otro);
     protected:
 
     private:

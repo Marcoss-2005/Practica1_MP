@@ -5,29 +5,27 @@ float ContratoTP::precioTP=10;
 const float ContratoTP::precioExcesoMinutos=0.15;
 
 
-//static se pone en el .h (no se pone en el .cpp)
+//Constructor de la clase
 ContratoTP::ContratoTP(char dni[], Fecha f, int m) : Contrato(dni, f) {
     this->minutosHablados = m;
 }
+//Construcyot copia
 ContratoTP::ContratoTP(const ContratoTP& c):Contrato(c){
     this->minutosHablados=c.minutosHablados;
 }
+//para ver
 void ContratoTP::ver() const {
   Contrato::ver(); //IMPORTANTE: llamamos al ver que heredo de mi padre PARA QUE MUESTRE LO DEL PADRE
                    //... y a continuacion solo "me preocupo" de mostrar lo que es exclusivo del hijo
   cout << " " << this->minutosHablados << "m, " << this->minutosTP<<"("<<this->ContratoTP::precioTP<<")";
 }
 
-
+//metodo para meter el dinero y los minutos a la variable declarada arrivba
 void ContratoTP::setTarifaPlana(int m, float p) {
     ContratoTP::minutosTP = m;
     ContratoTP::precioTP = p;
 }
 
-//RESTO DE METODOS Y FUNCIONES A RELLENAR POR EL ALUMNO...
-//int ContratoTP::NuevoidContrato(){
-
-//}
 float ContratoTP::factura() const {
     float total = 0;
     if (this->minutosHablados > ContratoTP::minutosTP) {

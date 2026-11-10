@@ -235,7 +235,7 @@
 1793039254 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\fecha.h
 	<iostream>
 
-1793039213 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\cliente.h
+1794312078 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\cliente.h
 	<string>
 	<iostream>
 	<cstring>
@@ -251,13 +251,13 @@
 	"Fecha.h"
 	"Contrato.h"
 
-1793039203 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\cliente.cpp
+1794312129 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\cliente.cpp
 	"Cliente.h"
 
-1793787648 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contrato.cpp
+1794337661 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contrato.cpp
 	"Contrato.h"
 
-1793732084 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratomovil.cpp
+1794337914 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratomovil.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -265,7 +265,7 @@
 	"Contrato.h"
 	"ContratoMovil.h"
 
-1793808777 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratotp.cpp
+1794337935 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratotp.cpp
 	"ContratoTP.h"
 
 1793886605 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contratotp.h
@@ -273,10 +273,10 @@
 	"Fecha.h"
 	"Contrato.h"
 
-1793039272 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\fecha.cpp
+1794311097 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\fecha.cpp
 	"Fecha.h"
 
-1794248444 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
+1794339184 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
 	"Empresa.h"
 	<typeinfo>
 

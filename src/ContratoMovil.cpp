@@ -5,6 +5,7 @@
 #include "Contrato.h"
 #include "ContratoMovil.h"
 
+//Constructor
 ContratoMovil::ContratoMovil(char dni[], Fecha f, float p, int m, const char *nac): Contrato(dni, f) {
   this->precioMinuto=p;
   this->minutosHablados=m;
@@ -25,7 +26,7 @@ ContratoMovil::~ContratoMovil() {
                                                                      //NO DA ERROR AL COMPILAR PORQUE EL COMPILADOR GENERA UN CONSTRUCTOR COPIA POR SU CUENTA...
                                                                      //...EL PROBLEMA ES QUE EL QUE GENERA EL COMPILADOR NO INCREMENTA contador
                                                                      //Y ASIGNARIA EL MISMO CODIGO A AMBOS CONTRATOS
-                                                                     //solucion: implementar constructor copia en CONTRATO y usar esta cabecera...
+//Constructor de copia                                                                     //solucion: implementar constructor copia en CONTRATO y usar esta cabecera...
 ContratoMovil::ContratoMovil(const ContratoMovil& c) : Contrato(c) { // Usando Contrato(c) aprovechas el constructor de copia de la clase base
   this->precioMinuto = c.precioMinuto;
   this->minutosHablados = c.minutosHablados;
@@ -41,7 +42,7 @@ void ContratoMovil::ver() const {
                    //... y a continuacion solo "me preocupo" de mostrar lo que es exclusivo del hijo
   cout << " " << this->minutosHablados << "m, " << this->nacionalidad << " " << this->precioMinuto;
 }
-
+//el precio total
 float ContratoMovil::factura() const {
   return this->getMinutosHablados()*this->getPrecioMinuto();
 }
