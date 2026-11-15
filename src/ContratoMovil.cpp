@@ -68,4 +68,31 @@ ostream& operator<<(ostream &s, const ContratoMovil &c) {
   s << c.factura() << "€";
   return s;
 }
+/*
+Aclaracion de virtual, const y static y amiga:
 
+virtual: sirve para el polimorfismo(que tiene muchas formas, imagina que tienes la clase animal y dentro de ella puede ser gato perro...)
+es para llamar al metodo correcto de la clase hija, si no lo ponemos puede llamar a la clase hija incorrecta
+//AÑADIDO si no pones virtual, no es que llame a una clase hija incorrecta, sino que llama siempre al método de la clase padre
+
+static: hace que una variable pertenezca a una clase y no a un objeto
+
+const: significa que es constante
+
+friend: es una funcion externa que permite acceder a los atributos privados de una clase, saltandose el emncapsulamiento por ejemplo la usamos en la fecha para poder acceder a dia mes y año sin tener que usar los metodos get
+
+*/
+
+/*
+Conceptos de herencia, polimorfismo y encapsulamiento y abstraccion
+
+Herencia: permite que una clase hija reciba y utilize metodos de la clase padre, como en la parte de contratos, esta contrato como padre y contratoTP y contratoMovil como hijas
+
+Polimorfismo: como la funcion factura, Permite tratar a objetos de distintas clases hijas a través de un puntero o referencia de la clase padre
+Ejemplo en tu práctica: Llamar a factura() desde un array de contratos generales y que C++ calcule automáticamente la factura de Tarifa Plana o de Móvil según corresponda.
+
+Encapsulamiento: Consiste en proteger los datos internos de un objeto ocultándolos con private por ejemplo
+
+Abstraccion:Es el proceso de aislar y representar solo las características esenciales de un objeto, ignorando los detalles complejos que no importan
+La clase Contrato como clase abstracta. Define el concepto general de contrato
+*/

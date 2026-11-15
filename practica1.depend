@@ -221,10 +221,11 @@
 1605103259 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\fecha.cpp
 	"Fecha.h"
 
-1794248234 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\main.cpp
+1794739349 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\main.cpp
 	<iostream>
 	<cstdlib>
 	<iomanip>
+	<typeinfo>
 	"Fecha.h"
 	"Cliente.h"
 	"Contrato.h"
@@ -232,16 +233,16 @@
 	"ContratoMovil.h"
 	"Empresa.h"
 
-1793039254 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\fecha.h
+1794735599 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\fecha.h
 	<iostream>
 
-1794312078 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\cliente.h
+1794735788 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\cliente.h
 	<string>
 	<iostream>
 	<cstring>
 	"Fecha.h"
 
-1793888847 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contrato.h
+1794736596 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contrato.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
@@ -251,13 +252,17 @@
 	"Fecha.h"
 	"Contrato.h"
 
-1794312129 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\cliente.cpp
+1794734737 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\cliente.cpp
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
 	"Cliente.h"
 
-1794337661 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contrato.cpp
+1794738053 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contrato.cpp
 	"Contrato.h"
 
-1794337914 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratomovil.cpp
+1794739291 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratomovil.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -265,7 +270,7 @@
 	"Contrato.h"
 	"ContratoMovil.h"
 
-1794337935 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratotp.cpp
+1794738340 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\contratotp.cpp
 	"ContratoTP.h"
 
 1793886605 c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\include\contratotp.h
@@ -273,10 +278,11 @@
 	"Fecha.h"
 	"Contrato.h"
 
-1794311097 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\fecha.cpp
+1794735515 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\fecha.cpp
 	"Fecha.h"
+	<iostream>
 
-1794339184 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
+1794740119 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
 	"Empresa.h"
 	<typeinfo>
 

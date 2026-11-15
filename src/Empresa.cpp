@@ -30,27 +30,26 @@ void Empresa::crearContrato()
     //Si no existe el dni, creamos contrato
     char dni[10];
     bool falso=true;
-    cout<<"digame su dni";
+    cout<<"digame su dni"<<endl;
     cin>>dni;
     int pos=buscarCliente(dni);
 
-    if(pos==-1)
+    if(pos==-1&&strlen(dni) == 9)
     {
         int d;
         int m;
         int a;
         char nombre[30];
         char apellidos[40];
-        cout<<"Digame su nombre";
+        cout<<"Digame su nombre"<<endl;
         cin>>nombre;
-        cout<<"Digame sus apellidos";
+        cout<<"Digame sus apellidos"<<endl;
         cin>>apellidos;
-        cout<<"Digame su fecha";
-        cout<<"Dia";
+        cout<<"(Fecha)Dia"<<endl;
         cin>>d;
-        cout<<"Mes";
+        cout<<"(Fecha)Mes"<<endl;
         cin>>m;
-        cout<<"Anio";
+        cout<<"(Fecha)Anio"<<endl;
         cin>>a;
         Fecha fcl(d,m,a);
         Cliente *nuevoClinte=new Cliente(dni, nombre,apellidos,fcl);
@@ -312,7 +311,7 @@ void Empresa::ver() const
         // (Ajusta los nombres de los métodos si en tu clase Cliente se llaman un poco diferente)
         cout << "DNI: " << clientes[i]->getDni()
              << " | Nombre: " << clientes[i]->getNombre()
-             << " " << clientes[i]->getApellido() << endl;
+             << " " << clientes[i]->getApellidos() << endl;
     }
 
     cout << "\n--- LISTA DE CONTRATOS (" << ncon << ") ---" << endl;

@@ -28,7 +28,7 @@ public:
   void setDniContrato(const char dni[]) { strcpy(this->dniContrato,dni); }
   //le meto el virtual para no liarla
   virtual void ver() const;
-  virtual float factura() const=0;
+  virtual float factura() const;
 };
 
 ostream& operator<<(ostream &s, const Contrato &c);

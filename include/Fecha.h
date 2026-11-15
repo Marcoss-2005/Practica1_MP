@@ -1,42 +1,43 @@
 #ifndef FECHA_H
 #define FECHA_H
 
-#include <iostream>
+#include <iostream> //cin, cout
 
 using namespace std;
 
-class Fecha
-{
-    //En public declaramos los metodos que vamos a usar
-    public:
-        Fecha(int dia, int mes, int anio);
-        virtual ~Fecha();
-        bool bisiesto() const;
-        int getDia() const;
-        int getMes() const;
-        int getAnio() const;
-        void setFecha(int dia, int mes, int anio);
-        void ver() const;
+class Fecha {
+private:
+    int dia;
+    int mes;
+    int anio;
 
-        //estos metodos son para operaciones como la que hacemos de 3+f2+2
-        Fecha& operator++();
-        Fecha operator++(int);
-        Fecha operator+(int dias) const;
+    // Método auxiliar que hemos metido para lo de el mes que es
+    int diasEnMes(int m, int a) const;
 
-    protected:
+public:
+    // Constructores y Destructor
+    Fecha(const int &dia, const int &m, const int &anio);
+    // virtual ~Fecha(); //No hace falta
+    //Getters
+    int getDia() const { return dia; }
+    int getMes() const { return mes; }
+    int getAnio() const { return anio; }
 
-    private:
-        int dia;
-        int mes;
-        int anio;
+    void setFecha(const int &dia, const int &mes, const int &a);
+    void ver() const;
+    bool bisiesto() const;
 
-        //metodo auziliar para poder saber el mes que nos dan y los dias que tiene para saber si esta permitido o no,
-        //tambien lo podemos hacer a la cuenta de la vieja con if pero creo que es mas contundente como lo he hecho yo
-        int diasEnMes(int m, int a) const;
+    // Sobrecarga de operadores
+    Fecha& operator++();                  // ++f
+    Fecha operator++(int i);              // f++
+    Fecha operator+(const int &i) const;  // f + 5
+
+    // Función amiga
+    friend Fecha operator+(const int &i, const Fecha &f);
 };
 
-Fecha operator+(int dias, const Fecha& f);
-
+// Funciones externas globales
+Fecha operator+(const int &i, const Fecha &f);
 ostream& operator<<(ostream& os, const Fecha& f);
 
 #endif // FECHA_H

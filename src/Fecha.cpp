@@ -1,75 +1,62 @@
 #include "Fecha.h"
+#include <iostream>
 
-//Constructor de la clase
-Fecha::Fecha(int dia, int mes, int anio){
-    setFecha(dia, mes, anio);
+using namespace std;
+
+// Constructor de la clase
+Fecha::Fecha(const int &dia, const int &m, const int &anio){
+    setFecha(dia, m, anio);
 }
 
-//Destructor
-Fecha::~Fecha(){}
+// Destructor (opcional)
+//Fecha::~Fecha(){}
 
-//Aqui vienen los getters
-int Fecha::getDia() const {
-    return this->dia;
-}
-
-int Fecha::getMes() const {
-    return this->mes;
-}
-
-int Fecha::getAnio() const {
-    return this->anio;
-}
-
-//Metodo para saber si un año es bisiesto
+// Método para saber si un año es bisiesto,con formula usada
 bool Fecha::bisiesto() const {
-    //Formula para saber si un ao es bisiesto(cogida de internet)
     return (this->anio % 4 == 0 && this->anio % 100 != 0) || (this->anio % 400 == 0);
 }
 
-//metodo para saber los dias de los meses,corto y eficiente
+//Metodo corto para los casos de los meses
 int Fecha::diasEnMes(int m, int a) const {
-    //tenemos 12 casos , 7 en los que pasa lo mismo y el mes tiene trenta y un dias y otros en los que tiene 30 y febrero tambien
     switch (m) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12: return 31;
         case 4: case 6: case 9: case 11: return 30;
         case 2: {
+            //metemos este metodo en febrero por si es año bisiesto
             bool esBisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
-            if(esBisiesto){
-                return 29;
-            }else{
-                return 28;
-            }
+            return esBisiesto ? 29 : 28;
         }
+        default: return 31;
     }
 }
-//Metodo que le pasamos al constuctor, para crear una fecha
-void Fecha::setFecha(int dia, int mes, int anio){
-    this->anio = anio;
+
+//Metodo para meter la fecha
+void Fecha::setFecha(const int &dia, const int &mes, const int &a){
+    this->anio = a;
 
     if (mes >= 1 && mes <= 12) {
         this->mes = mes;
     } else {
-        if(mes<1){
-            this->mes=1;
-        }else{
-            this->mes=12;
+        if(mes < 1){
+            this->mes = 1;
+        } else {
+            this->mes = 12;
         }
     }
 
-    //llamamos a nuestra funcion auxiliar
     int maxDias = diasEnMes(this->mes, this->anio);
     if (dia >= 1 && dia <= maxDias) {
         this->dia = dia;
     } else {
-        if(dia<1){
-            this->dia=1;
-        }else{
-            this->dia=maxDias;
+        if(dia < 1){
+            this->dia = 1;
+        } else {
+            this->dia = maxDias;
         }
     }
 }
-//esto para ver la fecha
+
+// Método para ver la fecha por pantalla
 void Fecha::ver() const {
     if (this->dia < 10) cout << "0";
     cout << this->dia << "/";
@@ -77,7 +64,7 @@ void Fecha::ver() const {
     cout << this->mes << "/" << this->anio;
 }
 
-//  incremento  (++f4)
+// Operador incremento
 Fecha& Fecha::operator++(){
     this->dia++;
     int maxDias = diasEnMes(this->mes, this->anio);
@@ -92,33 +79,29 @@ Fecha& Fecha::operator++(){
     return *this;
 }
 
-//f4++
-Fecha Fecha::operator++(int){
-    //Primero guardamos el estado actual de nuestra fecha
+// Operador incremento postfijo
+Fecha Fecha::operator++(int i){
     Fecha temp = *this;
-    //Despues incrementamos el objeto usando el prefijo, llamamos a la funcion de arriba
     ++(*this);
-    //Devolvemos la copia antigua
     return temp;
 }
 
-Fecha Fecha::operator+(int dias) const {
-    //Lo mismo, guardamos en resultado el que teniamos
+// Operador suma de días (f + 5)
+Fecha Fecha::operator+(const int &i) const {
     Fecha resultado = *this;
-
-    //hacemos un bucle para llamar al operador las veces que haga falta, mejor que hacer la cuenta de la vieja
-    for(int i = 0; i < dias; ++i) {
+    for(int count = 0; count < i; ++count) {
         ++resultado;
     }
     return resultado;
 }
-//f1 =2+f2+3; operacion que actua como puente por si tiene que hacer operaciones como esa, para que no se raye
-Fecha operator+(int dias, const Fecha& f) {
-    return f + dias;
+
+// Función amiga global para permitir (int + Fecha)
+Fecha operator+(const int &i, const Fecha &f) {
+    return f + i;
 }
-//Para mostrar por pantalla
+
+// Operador de flujo << para imprimir objetos Fecha directamente con cout
 ostream& operator<<(ostream& os, const Fecha& f){
-    //Si es menor que 10 le metemos el 0 delante
     if (f.getDia() < 10) os << "0";
     os << f.getDia() << "/";
     if (f.getMes() < 10) os << "0";

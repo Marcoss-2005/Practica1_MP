@@ -1,5 +1,8 @@
+#include <cstdlib>
+#include <cstring> //strlen, strcpy
+#include <iomanip> //std::setprecision
+#include <sstream> //stringstream
 #include "Cliente.h"
-
 //Metemos el constructor
 Cliente::Cliente(char dni[10], char* nombre, string apellido, Fecha fecha)
     : fecha(fecha) // esto hace que se llame a fecha del tiron para meter la fecha recibida por parametros
@@ -38,7 +41,7 @@ char* Cliente::getNombre() const{
     return this->nombre;
 }
 
-string Cliente::getApellido() const{
+string Cliente::getApellidos() const{
     return this->apellido;
 }
 
@@ -51,7 +54,7 @@ bool Cliente::operator==(const Cliente& otro) const {
     return (strcmp(this->dni, otro.dni) == 0);
 }
 
-void Cliente::setApellido(string apellido){
+void Cliente::setApellidos(string apellido){
     this->apellido = apellido;
 }
 
@@ -60,7 +63,7 @@ void Cliente::setFecha(Fecha fecha){
 }
 //Esto para mostrar los datos de los clientes
 ostream& operator<<(ostream& os, const Cliente& cli) {
-    os << cli.getNombre() << " " << cli.getApellido() << " (" << cli.getDni() << " – " << cli.getFecha() << ")";
+    os << cli.getNombre() << " " << cli.getApellidos() << " (" << cli.getDni() << " – " << cli.getFecha() << ")";
     return os;
 }
 // Operador de asignación

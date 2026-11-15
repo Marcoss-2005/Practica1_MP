@@ -15,11 +15,11 @@ class Cliente
         Cliente(char dni[10], char* nombre, string apellido, Fecha fecha);
         void setNombre(char* nombre);
         void setDni(char dni[10]);
-        void setApellido(string apellido);
+        void setApellidos(string apellido);
         void setFecha(Fecha fecha);
         string getDni() const;
         char* getNombre() const;
-        string getApellido() const;
+        string getApellidos() const;
         Fecha getFecha() const;
         virtual ~Cliente();
         bool operator==(const Cliente& otro) const;
@@ -27,6 +27,7 @@ class Cliente
     protected:
 
     private:
+        //Yo los voy a meter en privado aunque en la ayuda no salga asi, ya que si no no usamos el encapsulamiento que buscamos
         char dni[10];
         char* nombre;
         string apellido;
