@@ -221,7 +221,7 @@
 1605103259 source:c:\users\amarquez\downloads\practica1b_ayuda_2026\src\fecha.cpp
 	"Fecha.h"
 
-1794739349 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\main.cpp
+1794743487 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\main.cpp
 	<iostream>
 	<cstdlib>
 	<iomanip>
@@ -282,7 +282,7 @@
 	"Fecha.h"
 	<iostream>
 
-1794740119 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
+1794743799 source:c:\users\marcos\desktop\2 año ing info\metodologia_de_la_programacion\practica1_parte2\src\empresa.cpp
 	"Empresa.h"
 	<typeinfo>
 

@@ -27,109 +27,255 @@ Empresa::~Empresa()
 
 void Empresa::crearContrato()
 {
-    //Si no existe el dni, creamos contrato
     char dni[10];
-    bool falso=true;
-    cout<<"digame su dni"<<endl;
-    cin>>dni;
-    int pos=buscarCliente(dni);
 
-    if(pos==-1&&strlen(dni) == 9)
+    cout << "Digame su dni: " << endl;
+    cin >> dni;
+
+    while (strlen(dni) != 9)
     {
-        int d;
-        int m;
-        int a;
-        char nombre[30];
-        char apellidos[40];
-        cout<<"Digame su nombre"<<endl;
-        cin>>nombre;
-        cout<<"Digame sus apellidos"<<endl;
-        cin>>apellidos;
-        cout<<"(Fecha)Dia"<<endl;
-        cin>>d;
-        cout<<"(Fecha)Mes"<<endl;
-        cin>>m;
-        cout<<"(Fecha)Anio"<<endl;
-        cin>>a;
-        Fecha fcl(d,m,a);
-        Cliente *nuevoClinte=new Cliente(dni, nombre,apellidos,fcl);
-        //Miramos si caben mas clientes
-        if(altaCliente(nuevoClinte)==-1)
-        {
-            cout<<"No se pueden registrar mas clientes"<<endl;
-            delete nuevoClinte;
-            falso=false;
-        }
+        cout << "Error: El DNI debe tener exactamente 9 caracteres." << endl;
+        cout << "Digame su dni: " << endl;
 
+        cin.clear();
+        cin.ignore(1000, '\n'); // Limpia la basura anterior
+
+        cin.width(10);
+        cin >> dni;
     }
-    if(falso)
+
+    // Limpieza final por si acaso
+    cin.ignore(1000, '\n');
+
+    if (strlen(dni) == 9)
     {
-        int tipo;
-        cout << "Tipo de Contrato a abrir (1-Tarifa Plana, 2-Movil): ";
-        cin >> tipo;
+        int pos = buscarCliente(dni);
+        bool clienteOk = true;
 
-        int d, m, a;
-        cout << "Fecha del contrato\n";
-        cout << "dia: ";
-        cin >> d;
-        cout << "mes: ";
-        cin >> m;
-        cout << "anio: ";
-        cin >> a;
-        Fecha fContrato(d, m, a);
-
-        Contrato *nuevoContrato = nullptr;
-
-        if (tipo == 1)
+        // Si el cliente no existe, lo creamos
+        if (pos == -1)
         {
-            int minutos;
-            cout << "minutos hablados: ";
-            cin >> minutos;
-            nuevoContrato = new ContratoTP(dni, fContrato, minutos);
-        }
-        else if (tipo == 2)
-        {
-            int minutos;
-            float precioMinuto;
-            char nacionalidad[20];
+            char nombre[30];
+            char apellidos[40];
 
-            cout << "minutos hablados: ";
-            cin >> minutos;
-            cout << "Precio minuto: ";
-            cin >> precioMinuto;
-            cout << "Nacionalidad: ";
-            cin >> nacionalidad;
+            cout << "Digame su nombre:" << endl;
+            cin.getline(nombre, 30); // Usamos getline para admitir espacios si los hubiera
 
-            nuevoContrato = new ContratoMovil(dni, fContrato, precioMinuto, minutos, nacionalidad);
-        }
-        else
-        {
-            cout << "Tipo de contrato no válido.\n";
-            falso=false;
-        }
-        if(falso)
-        {
-            //REdimensionado
-            if (ncon == nmaxcon)
-            {
-                int nuevoMaxcon = nmaxcon * 2;
-                //Puntero doble a
-                Contrato **aux = new Contrato*[nuevoMaxcon];
+            cout << "Digame sus apellidos:" << endl;
+            cin.getline(apellidos, 40); // Usamos getline para apellidos
 
-                for (int i = 0; i < ncon; i++)
+            // Pedir y validar la fecha de nacimiento/alta del cliente en bucle seguro
+            int d = 0, m = 0, a = 0;
+            bool fechaClienteOk = false;
+
+            do {
+                cout << "Fecha de alta del cliente:\n";
+                cout << "dia: ";
+                cin >> d;
+                cout << "mes: ";
+                cin >> m;
+                cout << "anio: ";
+                cin >> a;
+
+                if (cin.fail())
                 {
-                    aux[i] = contratos[i]; // Copiamos los punteros antiguos
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Error: Introduzca numeros enteros validos.\n";
+                    continue;
                 }
 
-                delete[] contratos; // Liberamos la memoria antigua
-                contratos = aux;    // Actualizamos el puntero principal
-                nmaxcon = nuevoMaxcon;
+                // Validacion de dias del mes y bisiestos
+                if (m >= 1 && m <= 12 && a > 0)
+                {
+                    int maxDias = 31;
+                    if (m == 4 || m == 6 || m == 9 || m == 11) maxDias = 30;
+                    else if (m == 2) {
+                        bool bisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+                        maxDias = bisiesto ? 29 : 28;
+                    }
+
+                    if (d >= 1 && d <= maxDias) {
+                        fechaClienteOk = true;
+                    } else {
+                        cout << "Error: Dia no valido para ese mes/anio.\n";
+                    }
+                }
+                else {
+                    cout << "Error: Mes (1-12) o anio incorrecto.\n";
+                }
+            } while (!fechaClienteOk);
+
+            // Limpiamos
+            cin.ignore(1000, '\n');
+
+            Fecha fcl(d, m, a);
+            Cliente *nuevoCliente = new Cliente(dni, nombre, apellidos, fcl);
+
+            // Comprobamos si caben mas clientes en la empresa
+            if (altaCliente(nuevoCliente) == -1)
+            {
+                cout << "No se pueden registrar mas clientes" << endl;
+                delete nuevoCliente;
+                clienteOk = false;
+            }
+        }
+
+        // Si el cliente existe o se creó con éxito, procedemos al contrato
+        if (clienteOk)
+        {
+            int tipo = 0;
+            while (tipo != 1 && tipo != 2)
+            {
+                cout << "Tipo de Contrato a abrir (1-Tarifa Plana, 2-Movil): ";
+                cin >> tipo;
+
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Error: Debe introducir 1 o 2.\n";
+                    tipo = 0;
+                }
             }
 
-            contratos[ncon] = nuevoContrato;
-            ncon++;
+            // Limpiamos el búfer tras leer el tipo de contrato
+            cin.ignore(1000, '\n');
+
+            // Pedir y validar la fecha del contrato en bucle seguro
+            int d = 0, m = 0, a = 0;
+            bool fechaContratoOk = false;
+
+            do {
+                cout << "Fecha del contrato:\n";
+                cout << "dia: ";
+                cin >> d;
+                cout << "mes: ";
+                cin >> m;
+                cout << "anio: ";
+                cin >> a;
+
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Error: Introduzca numeros enteros validos.\n";
+                    continue;
+                }
+
+                if (m >= 1 && m <= 12 && a > 0)
+                {
+                    int maxDias = 31;
+                    if (m == 4 || m == 6 || m == 9 || m == 11) maxDias = 30;
+                    else if (m == 2) {
+                        bool bisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+                        maxDias = bisiesto ? 29 : 28;
+                    }
+
+                    if (d >= 1 && d <= maxDias) {
+                        fechaContratoOk = true;
+                    } else {
+                        cout << "Error: Dia no valido para ese mes/anio.\n";
+                    }
+                }
+                else {
+                    cout << "Error: Mes (1-12) o anio incorrecto.\n";
+                }
+            } while (!fechaContratoOk);
+
+            cin.ignore(1000, '\n');
+            Fecha fContrato(d, m, a);
+
+            Contrato *nuevoContrato = nullptr;
+            bool contratoOk = true;
+
+            if (tipo == 1)
+            {
+                int minutos = -1;
+                while (minutos < 0)
+                {
+                    cout << "Minutos hablados: ";
+                    cin >> minutos;
+
+                    if (cin.fail() || minutos < 0)
+                    {
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        cout << "Error: Introduzca un numero valido de minutos.\n";
+                        minutos = -1;
+                    }
+                }
+                nuevoContrato = new ContratoTP(dni, fContrato, minutos);
+            }
+            else if (tipo == 2)
+            {
+                int minutos = -1;
+                while (minutos < 0)
+                {
+                    cout << "Minutos hablados: ";
+                    cin >> minutos;
+
+                    if (cin.fail() || minutos < 0)
+                    {
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        cout << "Error: Introduzca un numero valido de minutos.\n";
+                        minutos = -1;
+                    }
+                }
+
+                float precioMinuto = -1.0f;
+                while (precioMinuto < 0)
+                {
+                    cout << "Precio minuto: ";
+                    cin >> precioMinuto;
+
+                    if (cin.fail() || precioMinuto < 0)
+                    {
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        cout << "Error: Introduzca un precio valido.\n";
+                        precioMinuto = -1.0f;
+                    }
+                }
+
+                char nacionalidad[20];
+                cout << "Nacionalidad: ";
+                cin >> nacionalidad;
+
+                nuevoContrato = new ContratoMovil(dni, fContrato, precioMinuto, minutos, nacionalidad);
+            }
+            else
+            {
+                contratoOk = false;
+            }
+
+            cin.ignore(1000, '\n');
+
+            if (contratoOk)
+            {
+                // Redimensionado dinámico del array de contratos si está lleno
+                if (ncon == nmaxcon)
+                {
+                    int nuevoMaxcon = nmaxcon * 2;
+                    Contrato **aux = new Contrato*[nuevoMaxcon];
+
+                    for (int i = 0; i < ncon; i++)
+                    {
+                        aux[i] = contratos[i];
+                    }
+
+                    delete[] contratos;
+                    contratos = aux;
+                    nmaxcon = nuevoMaxcon;
+                }
+
+                contratos[ncon] = nuevoContrato;
+                ncon++;
+            }
         }
     }
+
 }
 bool Empresa::cancelarContrato(int idContrato)
 {
