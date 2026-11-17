@@ -29,6 +29,7 @@ public:
   //le meto el virtual para no liarla
   virtual void ver() const;
   virtual float factura() const;
+  //friend bool mismoDiaAlta(const Contrato &c,int diaBuscado);
 };
 
 ostream& operator<<(ostream &s, const Contrato &c);

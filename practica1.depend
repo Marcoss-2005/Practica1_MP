@@ -293,3 +293,78 @@
 	"ContratoTP.h"
 	"ContratoMovil.h"
 
+1794743487 source:c:\users\usuario\desktop\practica1_parte2\main.cpp
+	<iostream>
+	<cstdlib>
+	<iomanip>
+	<typeinfo>
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoTP.h"
+	"ContratoMovil.h"
+	"Empresa.h"
+
+1794735599 c:\users\usuario\desktop\practica1_parte2\include\fecha.h
+	<iostream>
+
+1794735788 c:\users\usuario\desktop\practica1_parte2\include\cliente.h
+	<string>
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1794932847 c:\users\usuario\desktop\practica1_parte2\include\contrato.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1793886605 c:\users\usuario\desktop\practica1_parte2\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1793284024 c:\users\usuario\desktop\practica1_parte2\include\contratomovil.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1794935043 c:\users\usuario\desktop\practica1_parte2\include\empresa.h
+	"Fecha.h"
+	"Cliente.h"
+	"Contrato.h"
+	"ContratoTP.h"
+	"ContratoMovil.h"
+
+1794734737 source:c:\users\usuario\desktop\practica1_parte2\src\cliente.cpp
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+	"Cliente.h"
+
+1794738340 source:c:\users\usuario\desktop\practica1_parte2\src\contratotp.cpp
+	"ContratoTP.h"
+
+1794744524 source:c:\users\usuario\desktop\practica1_parte2\src\empresa.cpp
+	"Empresa.h"
+	<typeinfo>
+
+1794735515 source:c:\users\usuario\desktop\practica1_parte2\src\fecha.cpp
+	"Fecha.h"
+	<iostream>
+
+1794932116 source:c:\users\usuario\desktop\practica1_parte2\src\contratomovil.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	"Contrato.h"
+	"ContratoMovil.h"
+	"ContratoMovilInternet.h"
+	<iostream>
+	"ContratoMovil.h"
+
+1794932837 source:c:\users\usuario\desktop\practica1_parte2\src\contrato.cpp
+	"Contrato.h"
+

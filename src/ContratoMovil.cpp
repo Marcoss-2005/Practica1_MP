@@ -96,3 +96,82 @@ Encapsulamiento: Consiste en proteger los datos internos de un objeto ocultándol
 Abstraccion:Es el proceso de aislar y representar solo las características esenciales de un objeto, ignorando los detalles complejos que no importan
 La clase Contrato como clase abstracta. Define el concepto general de contrato
 */
+/*
+#include "ContratoMovilInternet.h"
+#include <iostream>
+
+using namespace std;
+
+// Constructor: Llama primero al constructor del padre (ContratoMovil)
+ContratoMovilInternet::ContratoMovilInternet(const char dni[], Fecha f, float precioMinuto, int minutosHablados, const char nacionalidad[], float megas, float precioMega)
+    : ContratoMovil(dni, f, precioMinuto, minutosHablados, nacionalidad)
+{
+    this->megasContratados = megas;
+    this->precioPorMega = precioMega;
+}
+
+ContratoMovilInternet::~ContratoMovilInternet() {
+    // Destructor por defecto
+}
+
+// Método ver() polimórfico
+void ContratoMovilInternet::ver() const {
+    // Reutilizamos el ver del padre y añadimos la info de internet
+    ContratoMovil::ver();
+    cout << " | Datos: " << megasContratados << "MB, Precio/MB: " << precioPorMega << endl;
+}
+
+// Método factura() polimórfico que calcula llamadas + datos
+float ContratoMovilInternet::factura() const {
+    float facturaBase = ContratoMovil::factura(); // Calcula (minutos * precioMinuto)
+    float facturaDatos = megasContratados * precioPorMega;
+
+    return facturaBase + facturaDatos;
+}
+Ejemplo de destructor chetado
+~Empresa() {
+        // 1. Primero borramos cada contrato individualmente de la memoria
+        for (int i = 0; i < ncon; i++) {
+            delete contratos[i]; // Llama al destructor de cada Contrato (y de sus hijas gracias al 'virtual')
+        }
+
+        // 2. Después borramos el array de punteros principal
+        delete[] contratos;
+
+        // (Opcional por seguridad)
+        contratos = nullptr;
+        ncon = 0;
+        nmaxcon = 0;
+    }
+
+
+    #ifndef CONTRATOMOVILINTERNET_H
+#define CONTRATOMOVILINTERNET_H
+
+#include "ContratoMovil.h"
+
+class ContratoMovilInternet : public ContratoMovil {
+private:
+    float megasContratados; // en MB o GB
+    float precioPorMega;    // coste adicional por datos
+
+public:
+    // Constructor parametrizado
+    ContratoMovilInternet(const char dni[], Fecha f, float precioMinuto, int minutosHablados, const char nacionalidad[], float megas, float precioMega);
+
+    // Destructor
+    virtual ~ContratoMovilInternet();
+
+    // Getters y Setters específicos
+    float getMegasContratados() const { return megasContratados; }
+    float getPrecioPorMega() const { return precioPorMega; }
+    void setMegasContratados(float m) { megasContratados = m; }
+    void setPrecioPorMega(float p) { precioPorMega = p; }
+
+    // Redefinición de métodos virtuales (Polimorfismo)
+    virtual void ver() const override;
+    virtual float factura() const override;
+};
+
+#endif
+*/

@@ -30,5 +30,9 @@ public:
     int nContratosTP()const;
     void cargarDatos();
     void ver()const;
+    int contarContratosTPSuperioresA(int minutosMinimos) const;
+    void actualizarPrecioMinutoMoviles(float nuevoPrecio);
+    int eliminarContratosDeCliente(const char dniBuscado[]);
+
 };
 #endif

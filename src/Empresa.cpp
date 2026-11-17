@@ -446,6 +446,7 @@ void Empresa::cargarDatos()
 }
 void Empresa::ver() const
 {
+    //Pra que se vea bonito
     cout << "\n========================================" << endl;
     cout << "           ESTADO DE LA EMPRESA         " << endl;
     cout << "========================================" << endl;
@@ -468,3 +469,51 @@ void Empresa::ver() const
     }
     cout << "========================================\n" << endl;
 }
+/*
+int Empresa::contarContratosTPSuperioresA(int minutosMinimos) const{
+    int a = 0;
+    for(int i = 0; i < ncon; i++){
+        ContratoTP *contratoTP = dynamic_cast<ContratoTP*>(contratos[i]);
+        if(contratoTP != nullptr){
+            // Faltaba esta comprobación:
+            if(contratoTP->getMinutos() > minutosMinimos){
+                a++;
+            }
+        }
+    }
+    return a;
+}
+
+void Empresa::actualizarPrecioMinutoMoviles(float nuevoPrecio){
+    for(int i=0; i<ncon;i++){
+        ContratoMovil *cmov=dynamic_cast<ContratoMovil*>(contratos[i]);
+        if(cmov!=nullptr){
+            cmov->setPrecioMinuto(nuevoPrecio);
+        }
+    }
+
+}
+int Empresa::eliminarContratosDeCliente(const char dniBuscado[]){
+    int eliminados = 0;
+    int i = 0;
+    while(i < ncon){
+        // Comprobamos directamente si el contrato pertenece al DNI buscado
+        if(strcmp(contratos[i]->getDniContrato(), dniBuscado) == 0){
+            delete contratos[i]; // 1. Liberar memoria
+
+            // 2. Desplazar a la izquierda
+            for(int j = i; j < ncon - 1; j++){
+                contratos[j] = contratos[j + 1];
+            }
+            ncon--; // 3. Actualizar contador
+            eliminados++;
+            // No incrementamos 'i' para evaluar el elemento que acaba de retrasarse
+        } else {
+            i++;
+        }
+    }
+    return eliminados;
+}
+*/
+
+

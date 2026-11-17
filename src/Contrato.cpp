@@ -33,3 +33,12 @@ ostream& operator<<(ostream &s, const Contrato &c) {
 float Contrato::factura() const {
     return 0; // Valor por defecto para la clase base genérica
 }
+/*
+bool mismoDiaAlta(const Contrato &c,int diaBuscado){
+    bool hecho=false;
+    if(c.fechaContrato.getDia()==diaBuscado){
+            hecho=true;
+    }
+    return hecho;
+}
+*/
